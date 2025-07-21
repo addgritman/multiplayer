@@ -1,0 +1,51 @@
+[gd_scene load_steps=3 format=3 uid="uid://d0cc762ae870j"]
+
+[ext_resource type="Theme" uid="uid://ihpr50rs8tsm" path="res://themes/main_theme.tres" id="1_lpb8r"]
+[ext_resource type="Script" uid="uid://ptiqhtsbrla4" path="res://autoloads/chat/chat.gd" id="2_41v18"]
+
+[node name="Chat" type="Control"]
+layout_mode = 3
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_lpb8r")
+script = ExtResource("2_41v18")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer"]
+visible = false
+anchors_preset = 12
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_top = -320.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = ExtResource("1_lpb8r")
+
+[node name="PanelContainer" type="PanelContainer" parent="CanvasLayer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+
+[node name="MarginContainer" type="MarginContainer" parent="CanvasLayer/MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TextBox" type="ItemList" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+item_count = 2
+item_0/text = "addg: Hello this is a message"
+item_1/text = "tony: Hi this is also a message"
+
+[node name="TextInput" type="LineEdit" parent="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "type a message"
+
+[connection signal="text_submitted" from="CanvasLayer/MarginContainer/PanelContainer/MarginContainer/VBoxContainer/TextInput" to="." method="_on_text_input_text_submitted"]

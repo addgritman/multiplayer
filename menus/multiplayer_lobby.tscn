@@ -1,0 +1,152 @@
+[gd_scene load_steps=4 format=3 uid="uid://d2sob5nkoaqjt"]
+
+[ext_resource type="Theme" uid="uid://ihpr50rs8tsm" path="res://themes/main_theme.tres" id="1_vqlsk"]
+[ext_resource type="Script" uid="uid://bcd45g705u1k3" path="res://menus/multiplayer_lobby.gd" id="2_2u1oy"]
+[ext_resource type="Texture2D" uid="uid://bsuctdl484s22" path="res://art/game_photos/default-missing.jpg" id="3_8m53o"]
+
+[node name="MultiplayerLobby" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_vqlsk")
+script = ExtResource("2_2u1oy")
+default_game_picture = ExtResource("3_8m53o")
+
+[node name="MarginContainer2" type="MarginContainer" parent="."]
+layout_mode = 1
+anchors_preset = 10
+anchor_right = 1.0
+offset_bottom = 760.0
+grow_horizontal = 2
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer2"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer2/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 0
+text = "Multiplayer Lobby"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxPlayers" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="PlayersLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayers"]
+layout_mode = 2
+text = "Players"
+vertical_alignment = 1
+
+[node name="PlayerList" type="ItemList" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayers"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlayerSpectatorSwapButton" type="Button" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 4
+size_flags_vertical = 4
+text = "<- Swap ->"
+
+[node name="VBoxSpectators" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="SpectatorsLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxSpectators"]
+layout_mode = 2
+text = "Spectators"
+vertical_alignment = 1
+
+[node name="SpectatorList" type="ItemList" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxSpectators"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxGames" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+custom_minimum_size = Vector2(320, 0)
+layout_mode = 2
+
+[node name="GamesLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGames"]
+layout_mode = 2
+text = "Games"
+
+[node name="GamesList" type="ItemList" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGames"]
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="VBoxGameInfo" type="VBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+
+[node name="GameInfoLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo"]
+layout_mode = 2
+text = "Game Information"
+
+[node name="HBoxGameName" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo"]
+layout_mode = 2
+
+[node name="GameNameLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxGameName"]
+layout_mode = 2
+text = "Game Name:"
+
+[node name="GameNameValueLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxGameName"]
+layout_mode = 2
+text = "Dummy Name"
+
+[node name="HBoxDescription" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo"]
+layout_mode = 2
+
+[node name="DescriptionLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxDescription"]
+layout_mode = 2
+text = "Description:"
+
+[node name="DescriptionValueLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxDescription"]
+layout_mode = 2
+text = "Dummy Description"
+
+[node name="HBoxPlayerCount" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo"]
+layout_mode = 2
+
+[node name="PlayerCountLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxPlayerCount"]
+layout_mode = 2
+text = "Player Count:"
+
+[node name="PlayerCountValueLabel" type="Label" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxPlayerCount"]
+layout_mode = 2
+text = "Dummy Player Count"
+
+[node name="GamePicture" type="TextureRect" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo"]
+custom_minimum_size = Vector2(320, 320)
+layout_mode = 2
+size_flags_vertical = 3
+expand_mode = 1
+stretch_mode = 4
+
+[node name="HBoxContainer2" type="HBoxContainer" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="StartGameButton" type="Button" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Start Game"
+
+[node name="LeaveServerButton" type="Button" parent="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Leave Server"
+
+[connection signal="pressed" from="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayerSpectatorSwapButton" to="." method="_on_player_spectator_swap_button_pressed"]
+[connection signal="item_selected" from="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGames/GamesList" to="." method="_on_games_list_item_selected"]
+[connection signal="pressed" from="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/StartGameButton" to="." method="_on_start_game_button_pressed"]
+[connection signal="pressed" from="MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer2/LeaveServerButton" to="." method="_on_leave_server_button_pressed"]

@@ -1,0 +1,86 @@
+[gd_scene load_steps=3 format=3 uid="uid://cvxob1dcdjfyl"]
+
+[ext_resource type="Theme" uid="uid://ihpr50rs8tsm" path="res://themes/main_theme.tres" id="1_rt0t4"]
+[ext_resource type="Script" uid="uid://csyndur340csi" path="res://menus/multiplayer_menu.gd" id="2_vg7nh"]
+
+[node name="MultiplayerMenu" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_rt0t4")
+script = ExtResource("2_vg7nh")
+
+[node name="PanelContainer" type="PanelContainer" parent="."]
+layout_mode = 1
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = 684.0
+offset_top = 437.0
+offset_right = -684.0
+offset_bottom = -436.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="Title" type="Label" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Multiplayer"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="PlayerName" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+placeholder_text = "Player Name..."
+max_length = 12
+
+[node name="HostContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+
+[node name="HostButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/HostContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Host"
+
+[node name="LineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/HostContainer"]
+layout_mode = 2
+text = "8080"
+placeholder_text = "Port..."
+max_length = 5
+
+[node name="JoinContainer" type="HBoxContainer" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+alignment = 1
+
+[node name="JoinButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer/JoinContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Join"
+
+[node name="IpLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/JoinContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+placeholder_text = "IP..."
+max_length = 16
+
+[node name="PortLineEdit" type="LineEdit" parent="PanelContainer/MarginContainer/VBoxContainer/JoinContainer"]
+layout_mode = 2
+text = "8080"
+placeholder_text = "Port..."
+max_length = 5
+
+[node name="MainMenuButton" type="Button" parent="PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+text = "Main Menu"
+
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/HostContainer/HostButton" to="." method="_on_host_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/JoinContainer/JoinButton" to="." method="_on_join_button_pressed"]
+[connection signal="pressed" from="PanelContainer/MarginContainer/VBoxContainer/MainMenuButton" to="." method="_on_main_menu_button_pressed"]
