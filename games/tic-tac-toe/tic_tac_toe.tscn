@@ -1,0 +1,204 @@
+[gd_scene load_steps=4 format=3 uid="uid://3xc1bidpdq2i"]
+
+[ext_resource type="Theme" uid="uid://ihpr50rs8tsm" path="res://themes/main_theme.tres" id="1_r60kv"]
+[ext_resource type="PackedScene" uid="uid://cgde4rygw85vf" path="res://games/tic-tac-toe/tic_tac_toe_tile.tscn" id="2_am2dq"]
+[ext_resource type="Script" uid="uid://cv4kndra6wdf" path="res://games/tic-tac-toe/tic_tac_toe.gd" id="2_ywwxn"]
+
+[node name="TicTacToe" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = ExtResource("1_r60kv")
+script = ExtResource("2_ywwxn")
+
+[node name="MarginContainer" type="MarginContainer" parent="."]
+layout_mode = 0
+offset_right = 1920.0
+offset_bottom = 770.0
+
+[node name="PanelContainer" type="PanelContainer" parent="MarginContainer"]
+layout_mode = 2
+
+[node name="MarginContainer" type="MarginContainer" parent="MarginContainer/PanelContainer"]
+layout_mode = 2
+
+[node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+
+[node name="TitleLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_font_sizes/font_size = 48
+text = "Tic Tac Toe"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="HBoxContainer" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer"]
+layout_mode = 2
+theme_override_constants/separation = 20
+
+[node name="VBoxPlayerOne" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxName" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne/HBoxName"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "P1:"
+
+[node name="NameLabelValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne/HBoxName"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "The Player"
+
+[node name="HBoxTurn" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne"]
+layout_mode = 2
+
+[node name="TurnLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne/HBoxTurn"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Your turn?:"
+
+[node name="TurnLabelValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne/HBoxTurn"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Maybe"
+
+[node name="HBoxWins" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne"]
+layout_mode = 2
+
+[node name="WinLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne/HBoxWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wins:"
+
+[node name="WinLabelValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerOne/HBoxWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-1"
+
+[node name="GridContainer" type="GridContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/h_separation = 20
+theme_override_constants/v_separation = 20
+columns = 3
+
+[node name="TicTacToeTile" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile2" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+col = 1
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile3" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+col = 2
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile4" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+row = 1
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile5" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+col = 1
+row = 1
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile6" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+col = 2
+row = 1
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile7" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+row = 2
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile8" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+col = 1
+row = 2
+board = NodePath("../../../../../../..")
+
+[node name="TicTacToeTile9" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/GridContainer" node_paths=PackedStringArray("board") instance=ExtResource("2_am2dq")]
+layout_mode = 2
+size_flags_vertical = 3
+col = 2
+row = 2
+board = NodePath("../../../../../../..")
+
+[node name="VBoxPlayerTwo" type="VBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_constants/separation = 24
+
+[node name="HBoxName" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo"]
+layout_mode = 2
+
+[node name="NameLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo/HBoxName"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "P2:"
+
+[node name="NameLabelValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo/HBoxName"]
+layout_mode = 2
+size_flags_horizontal = 3
+theme_override_font_sizes/font_size = 32
+text = "The Player"
+
+[node name="HBoxTurn" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo"]
+layout_mode = 2
+
+[node name="TurnLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo/HBoxTurn"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Your turn?:"
+
+[node name="TurnLabelValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo/HBoxTurn"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Maybe"
+
+[node name="HBoxWins" type="HBoxContainer" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo"]
+layout_mode = 2
+
+[node name="WinLabel" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo/HBoxWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Wins:"
+
+[node name="WinLabelValue" type="Label" parent="MarginContainer/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxPlayerTwo/HBoxWins"]
+layout_mode = 2
+size_flags_horizontal = 3
+text = "-1"
+
+[node name="QuitGameButton" type="Button" parent="MarginContainer/PanelContainer/MarginContainer"]
+layout_mode = 2
+size_flags_horizontal = 8
+size_flags_vertical = 8
+text = "Quit Game"
+
+[connection signal="pressed" from="MarginContainer/PanelContainer/MarginContainer/QuitGameButton" to="." method="_on_quit_game_button_pressed"]

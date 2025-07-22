@@ -3,7 +3,7 @@ extends Node
 
 func load_game(slug):
 	if slug == 'tic-tac-toe':
-		pass
+		get_tree().change_scene_to_file("res://games/tic-tac-toe/tic_tac_toe.tscn")
 
 
 func load_main_menu():

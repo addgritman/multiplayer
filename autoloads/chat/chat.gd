@@ -38,6 +38,7 @@ func insert_message(net_id, message, server_message):
 
 
 func reload_messages():
+	print('reload')
 	text_box.clear()
 	for message in messages:
 		text_box.add_item(message)
@@ -68,6 +69,7 @@ func scroll_text_box_to_bottom():
 
 
 func reset_chat():
+	print('reset')
 	messages = []
 	reload_messages()
 	set_visibility(false)

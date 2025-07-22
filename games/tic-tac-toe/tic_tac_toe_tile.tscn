@@ -1,0 +1,36 @@
+[gd_scene load_steps=6 format=3 uid="uid://cgde4rygw85vf"]
+
+[ext_resource type="Theme" uid="uid://ihpr50rs8tsm" path="res://themes/main_theme.tres" id="1_15gh8"]
+[ext_resource type="Texture2D" uid="uid://cpd1wb5bs75ul" path="res://art/tic_tac_toe/Background.png" id="1_25wrv"]
+[ext_resource type="Script" uid="uid://dfvms0l24tqr0" path="res://games/tic-tac-toe/tic_tac_toe_tile.gd" id="2_cwiec"]
+[ext_resource type="Texture2D" uid="uid://dj3j12mp34vmr" path="res://art/tic_tac_toe/x.png" id="3_s1svs"]
+[ext_resource type="Texture2D" uid="uid://dfjmp0rocrd2s" path="res://art/tic_tac_toe/circle.png" id="4_7o8gp"]
+
+[node name="TicTacToeTile" type="Button"]
+custom_minimum_size = Vector2(200, 200)
+offset_right = 120.0
+offset_bottom = 120.0
+size_flags_horizontal = 0
+size_flags_vertical = 0
+theme = ExtResource("1_15gh8")
+script = ExtResource("2_cwiec")
+x_texture = ExtResource("3_s1svs")
+o_texture = ExtResource("4_7o8gp")
+
+[node name="BackgroundTexture" type="TextureRect" parent="."]
+modulate = Color(0.875518, 0.614574, 0.801194, 1)
+show_behind_parent = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_right = 40.0
+offset_bottom = 40.0
+texture = ExtResource("1_25wrv")
+
+[node name="TileTexture" type="TextureRect" parent="."]
+show_behind_parent = true
+custom_minimum_size = Vector2(200, 200)
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 200.0
+
+[connection signal="pressed" from="." to="." method="_on_pressed"]

@@ -8,8 +8,13 @@ extends Control
 @onready var game_description_label = $MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxDescription/DescriptionValueLabel
 @onready var player_count_label = $MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/HBoxPlayerCount/PlayerCountValueLabel
 @onready var game_picture = $MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/VBoxGameInfo/GamePicture
+@onready var swap_button = $MarginContainer2/PanelContainer/MarginContainer/VBoxContainer/HBoxContainer/PlayerSpectatorSwapButton
 
 @export var default_game_picture: Texture
+
+var slug = null
+var min_player = 0
+var max_player = 0
 
 func _ready() -> void:
 	MultiplayerManager.player_connected.connect(_on_player_connected)
@@ -44,6 +49,10 @@ func set_selected_game_data(game_data):
 	var min_player_count = game_data.players_min
 	var max_player_count = game_data.players_max
 	var picture = game_data.picture
+	slug = game_data.slug
+	
+	min_player = min_player_count
+	max_player = max_player_count
 	
 	game_name_label.text = game_name
 	game_description_label.text = game_description
@@ -55,6 +64,14 @@ func set_selected_game_data(game_data):
 	game_picture.size = Vector2(100, 100)
 
 
+func can_start_game():
+	if not slug:
+		return false
+	if player_list.item_count < min_player or player_list.item_count > max_player:
+		return false
+	return true
+
+
 func _on_player_connected(net_id, player_info):
 	reload_player_list()
 
@@ -64,7 +81,8 @@ func _on_player_disconnected(net_id, player_info):
 
 
 func _on_start_game_button_pressed() -> void:
-	print('LOAD GAME')
+	if can_start_game():
+		MultiplayerManager.load_game(slug)
 
 
 func _on_leave_server_button_pressed() -> void:
@@ -74,11 +92,14 @@ func _on_leave_server_button_pressed() -> void:
 
 
 func _on_player_spectator_swap_button_pressed() -> void:
+	swap_button.disabled = true
 	var type = MultiplayerManager.players[multiplayer.get_unique_id()].player_type
 	var new_type = 'player'
 	if type == 'player':
 		new_type = 'spectator'
 	MultiplayerManager.update_player_type.rpc(multiplayer.get_unique_id(), new_type)
+	await get_tree().create_timer(2).timeout
+	swap_button.disabled = false
 
 
 func _on_player_info_updated(net_id, player_info):

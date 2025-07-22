@@ -1,7 +1,13 @@
-[gd_resource type="Theme" format=3 uid="uid://ihpr50rs8tsm"]
+[gd_resource type="Theme" load_steps=2 format=3 uid="uid://ihpr50rs8tsm"]
+
+[ext_resource type="FontFile" uid="uid://d3tc30a0hd8p7" path="res://art/fonts/oryx-simplex.ttf" id="1_rjgu6"]
 
 [resource]
+default_font = ExtResource("1_rjgu6")
+default_font_size = 24
 BoxContainer/constants/separation = 10
+GridContainer/constants/h_separation = 10
+GridContainer/constants/v_separation = 10
 HBoxContainer/constants/separation = 10
 MarginContainer/constants/margin_bottom = 10
 MarginContainer/constants/margin_left = 10

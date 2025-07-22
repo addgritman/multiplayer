@@ -17,9 +17,9 @@ config/icon="res://icon.svg"
 
 [autoload]
 
+Chat="*res://autoloads/chat/chat.tscn"
 SceneManager="*res://autoloads/scene_manager.tscn"
 MultiplayerManager="*res://autoloads/multiplayer_manager.tscn"
-Chat="*res://autoloads/chat/chat.tscn"
 GameData="*res://autoloads/game_data.gd"
 
 [display]
